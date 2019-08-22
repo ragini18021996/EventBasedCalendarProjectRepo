@@ -1,8 +1,8 @@
 package com.scheduler.FrontController;
 
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
+
 
 
 
@@ -55,7 +55,7 @@ public class HomeController {
 		if(result.hasErrors())
 		{
 			mv=new ModelAndView("HomePage");
-			mv.addObject("msg","Data is not Added");
+			mv.addObject("msg","There is some problem..Please fill the Details");
 			return mv;
 		}
 		

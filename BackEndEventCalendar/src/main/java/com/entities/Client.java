@@ -24,7 +24,6 @@ public class Client {
 	private String clientName;
 	
 	@NotEmpty(message="Project Name cannot be empty")
-	@Pattern(regexp="[a-z]+[A-Z]+", message="must not contain numbers")
 	private String projectName;
 	
 	@NotEmpty(message="Arrival date cannot empty")

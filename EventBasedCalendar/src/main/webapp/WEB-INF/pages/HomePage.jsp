@@ -17,14 +17,16 @@
 <script src="<c:url value="/resources/js/HomeFunctions.js" />"></script>
 </head>
 <body>
-
+	
 <button class="tablink" onclick="openPage('Add', this, 'blue')" id="defaultOpen">Client Itinerary</button>
 <button class="tablink" onclick="openPage('View', this, 'blue');" id="tablink2">View Client Itinerary</button>
 
 <div id="Add" class="tabcontent">
         <div class="container">
-                <form:form action="${pageContext.request.contextPath}/submitOnDb" method="post"  modelAttribute="cObj" onsubmit="return alert('Successfully Added Client Itinerary'); return false;">
-                
+                <form:form action="${pageContext.request.contextPath}/submitOnDb" method="post"  modelAttribute="cObj">
+                	<c:if test="${msg ne null }">
+				<h4 align="center" style="color:blue;">${msg}</h4>
+	</c:if>
                   <div class="row">
                     <div class="col-25">
                       <label for="fname">Client Name</label>
@@ -133,7 +135,7 @@
                         </div>
                 
                         <div class="col-75">
-                          <input type="datetime-local" name="starttime" id="starttime" required>
+                          <input type="datetime-local" name="starttime" id="starttime" >
                        </div>
                       </div>
                       <div class="row">
@@ -141,7 +143,7 @@
                             <label>Event end  date And time</label>
                         </div>
                         <div class="col-75">
-                          <input type="datetime-local" name="endtime" id="endtime" required>
+                          <input type="datetime-local" name="endtime" id="endtime" >
                        </div>
                    
                      
@@ -160,14 +162,14 @@
 			<table id="tab" border="1"></table>
 									
 					
-					<br>
+					<br></br>
+					<br></br>
                   <div class="row" align="center">
                     <input type="submit" value="Submit" >
                   </div>
                 </form:form>
                 
       </div>
-  
               
 </div>
 
