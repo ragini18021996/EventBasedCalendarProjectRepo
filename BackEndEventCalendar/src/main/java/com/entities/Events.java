@@ -8,6 +8,12 @@ import javax.persistence.*;
 @Table
 public class Events {
 	
+	@Override
+	public String toString() {
+		return "Events [eventId=" + eventId + ", eventType=" + eventType
+				+ ", startTimeDate=" + startTimeDate + ", endTimeDate="
+				+ endTimeDate + ", place=" + place + ", cli=" + cli + "]";
+	}
 	@Id
 	@GeneratedValue
 
@@ -21,21 +27,17 @@ public class Events {
 	
 	private String place;
 	
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne(cascade=CascadeType.MERGE)
 	private Client cli;
 	
+
 	public String getPlace() {
 		return place;
 	}
 	public void setPlace(String place) {
 		this.place = place;
 	}
-	public Client getCli() {
-		return cli;
-	}
-	public void setCli(Client cli) {
-		this.cli = cli;
-	}
+	
 	public int getEventId() {
 		return eventId;
 	}
@@ -60,5 +62,14 @@ public class Events {
 	public void setEndTimeDate(String endTimeDate) {
 		this.endTimeDate = endTimeDate;
 	}
+	public Client getCli() {
+		return cli;
+	}
+	public void setCli(Client cli) {
+		this.cli = cli;
+	}
+	
+	
+	
 	
 }

@@ -26,16 +26,19 @@ public class Client {
 	
 	private String agenda;
 	
-	@OneToMany(cascade=CascadeType.PERSIST,mappedBy="cli",fetch=FetchType.EAGER)
-	private Set<Events> eve=new HashSet<Events>();
+	@Transient
+	private String eventData;
+	
+	/*@OneToMany(cascade=CascadeType.PERSIST,mappedBy="cli",fetch=FetchType.EAGER)
+	private Set<Events> eve=new HashSet<Events>();*/
 	
 	
-	public Set<Events> getEve() {
+	/*public Set<Events> getEve() {
 		return eve;
 	}
 	public void setEve(Set<Events> eve) {
 		this.eve = eve;
-	}
+	}*/
 	public int getClientId() {
 		return clientId;
 	}
@@ -71,6 +74,12 @@ public class Client {
 	}
 	public void setAgenda(String agenda) {
 		this.agenda = agenda;
+	}
+	public String getEventData() {
+		return eventData;
+	}
+	public void setEventData(String eventData) {
+		this.eventData = eventData;
 	}
 	
 	

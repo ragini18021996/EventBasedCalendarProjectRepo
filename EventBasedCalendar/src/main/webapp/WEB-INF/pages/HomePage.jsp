@@ -83,16 +83,16 @@
    									<li class="dropdown-submenu">
         						<a class="test" tabindex="-1" href="#">Meal <span class="caret"></span></a>
         						<ul class="dropdown-menu">
-         							 <li><a class="test2" tabindex="-1" href="#">Unit 1, Cafeteria</a></li>
-          							<li><a class="test2" tabindex="-1" href="#">Unit 2, Cafeteria</a></li>
+         							 <li><a class="test2" tabindex="-1" href="#">Unit 1 Cafeteria</a></li>
+          							<li><a class="test2" tabindex="-1" href="#">Unit 2 Cafeteria</a></li>
        							 </ul>
      							 	</li>
      								
      								<li class="dropdown-submenu">
         						<a class="test" tabindex="-1" href="#">Hotel <span class="caret"></span></a>
         						<ul class="dropdown-menu">
-         							 <li><a class="test2"  tabindex="-1" href="#">FabSunshine, Greater Noida</a></li>
-          							<li><a class="test2"  tabindex="-1" href="#">Treebo,Near Advant Park</a></li>
+         							 <li><a class="test2"  tabindex="-1" href="#">FabSunshine  Greater Noida</a></li>
+          							<li><a class="test2"  tabindex="-1" href="#">Treebo Near Advant Park</a></li>
           							<li><a class="test2" tabindex="-1" href="#">Other</a></li>
        							 </ul>
      							 	</li>
@@ -148,10 +148,13 @@
                   <hr></hr>
                   <div class="col-25">
                   <label>View Events</label>
-                  </div>
-                   <textarea id="textarea" rows="4" cols="140">
-
-					</textarea>
+                  </div >
+                 
+                   <form:hidden  id="textarea" rows="4" cols="140" path="eventData" />
+                    
+			<table id="tab" border="1"></table>
+									
+					
 					<br>
                   <div class="row" align="center">
                     <input type="submit" value="Submit" >
@@ -159,7 +162,7 @@
                 </form:form>
                 
       </div>
-     
+  
               
 </div>
 
@@ -205,24 +208,24 @@
 		                     clientList=clientList+"<td>"+ obj.arrivalDate +" </td>";
 		                     clientList=clientList+"<td> "+ obj.deptDate +"</td>";
 		                     clientList=clientList+"<td>"+ obj.agenda +"</td>";
-		                     clientList=clientList+"<td><a href='#'>View Events</a></td>";
+		                     clientList=clientList+"<td><a href='${pageContext.request.contextPath}/viewClientEvent/"+obj.clientId+"'>View Events</a></td>";
 		                     clientList=clientList+"</tr>";
+		                    
+		                     //alert("cid"+obj.clientId);
 		                 }); 
 		            	  
 		            	 $('#clientTab tbody').html(clientList);
 		            }
 		        });
-		    
-			});
+		   });
 
 
-
-
-
+	
 
   $('.dropdown-submenu a.test').on("click", function(e){
 	var event1=($(this).text());
 	 sessionStorage.setItem("event1",$(this).text());
+	 
 	 
 	 
 	 
@@ -231,8 +234,6 @@
     //e.preventDefault();
   });
   $('.dropdown-menu a.test2').on("click", function(e){
-	  
-	  // $("#textarea").val(event1+" "+($(this).text()));
 	   sessionStorage.setItem("event1",sessionStorage.getItem("event1")+" "+($(this).text()));
 	   
 	
@@ -251,38 +252,29 @@
 	 sessionStorage.setItem("endtime",str2); 
  });
 
- /* function SetFields() {
-	 if(($("#textarea").val())!=null)
-		{
-		var textdata=$("#textarea").val();
-		sessionStorage.setItem("text",textdata);
-		}
-	    
-	} */
  $("#event").click(function(){
-	//SetFields();
-	
 	var previousData=sessionStorage.getItem("text");
 	var newData;
-	
-	
+	var newData2;
 	
 	if(previousData=="" || previousData==null){
-		newData=sessionStorage.getItem("event1") +" ,"+sessionStorage.getItem("starttime") +" ,"+
+		newData="<tr><td>"+sessionStorage.getItem("event1") +"</td><td>"+sessionStorage.getItem("starttime") +" </td><td>"+
+		sessionStorage.getItem("endtime")+"</td></tr>";
+		
+		newData2=sessionStorage.getItem("event1") +","+sessionStorage.getItem("starttime") +" ,"+
 		sessionStorage.getItem("endtime")+"\n";
 	}
 	else{
-		newData=sessionStorage.getItem("text")+sessionStorage.getItem("event1") +" ,"+sessionStorage.getItem("starttime") +" ,"+
+		newData=sessionStorage.getItem("tabdata")+"<tr><td>"+sessionStorage.getItem("event1") +"</td><td>"+sessionStorage.getItem("starttime") +" </td><td>"+
+		sessionStorage.getItem("endtime")+"</td></tr>";
+		
+		newData2=sessionStorage.getItem("text")+sessionStorage.getItem("event1") +","+sessionStorage.getItem("starttime") +","+
 		sessionStorage.getItem("endtime")+"\n";
 	}
-	/*else {
-		$("#textarea").val(sessionStorage.getItem("event1") +" ,"+sessionStorage.getItem("starttime") +" ,"+
-				sessionStorage.getItem("endtime")+"\n");
-		
-	}*/
 	
-	$("#textarea").val(newData);
-	 
+	$("#tab").html(newData);
+	$("#textarea").val(newData2);
+	
 	ClearFields();
 	return false;
 	
@@ -290,13 +282,14 @@
 function ClearFields() {
 	if(($("#textarea").val())!=null)
 		{
-		var textdata=$("#textarea").val();
-		sessionStorage.setItem("text",textdata);
+		var textdataForField=$("#textarea").val();
+		var tabdata=$("#tab").html();
+		sessionStorage.setItem("text",textdataForField);
+		sessionStorage.setItem("tabdata",tabdata);
+		
 		}
-	
     $("#starttime").val("");
-    $("#endtime").val("");
-    
+    $("#endtime").val("");  
 }
 
 

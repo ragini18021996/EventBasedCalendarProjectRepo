@@ -2,6 +2,8 @@ package com.daos;
 
 import java.util.List;
 
+import javax.persistence.Transient;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -48,11 +50,12 @@ public class ClientDaoImpl implements ClientDao{
 			return null;
 	}
 
+	
 	public List<Client> getAllClient() {
 		
 		try {
 			Session session=sf.getCurrentSession();
-			Query q=session.createQuery("from Client");
+			Query<Client> q=session.createQuery("from Client");
 			return q.getResultList();
 			
 		}

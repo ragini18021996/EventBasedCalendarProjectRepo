@@ -136,7 +136,7 @@ public class AppTest
 		c.setArrivalDate("17/2/2019");
 		c.setDeptDate("29/2/2019");
 		c.setAgenda("func1");
-		c.setEve(eve);
+		//c.setEve(eve);
 		
 		e1.setCli(c);
 		e2.setCli(c);
