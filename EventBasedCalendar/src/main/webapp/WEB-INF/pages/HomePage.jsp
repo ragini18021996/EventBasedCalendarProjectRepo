@@ -90,16 +90,16 @@
    									<li class="dropdown-submenu">
         						<a class="test" tabindex="-1" href="#">Meal <span class="caret"></span></a>
         						<ul class="dropdown-menu">
-         							 <li><a class="test2" tabindex="-1" href="#">Unit 1 Cafeteria</a></li>
-          							<li><a class="test2" tabindex="-1" href="#">Unit 2 Cafeteria</a></li>
+         							 <li><a class="test2" tabindex="-1" href="#">Unit 1, Cafeteria</a></li>
+          							<li><a class="test2" tabindex="-1" href="#">Unit 2, Cafeteria</a></li>
        							 </ul>
      							 	</li>
      								
      								<li class="dropdown-submenu">
         						<a class="test" tabindex="-1" href="#">Hotel <span class="caret"></span></a>
         						<ul class="dropdown-menu">
-         							 <li><a class="test2"  tabindex="-1" href="#">FabSunshine  Greater Noida</a></li>
-          							<li><a class="test2"  tabindex="-1" href="#">Treebo Near Advant Park</a></li>
+         							 <li><a class="test2"  tabindex="-1" href="#">FabSunshine, Greater Noida</a></li>
+          							<li><a class="test2"  tabindex="-1" href="#">Treebo,Near Advant Park</a></li>
           							<li><a class="test2" tabindex="-1" href="#">Other</a></li>
        							 </ul>
      							 	</li>
@@ -241,7 +241,7 @@
     //e.preventDefault();
   });
   $('.dropdown-menu a.test2').on("click", function(e){
-	   sessionStorage.setItem("event1",sessionStorage.getItem("event1")+" "+($(this).text()));
+	   sessionStorage.setItem("event1",sessionStorage.getItem("event1")+" : "+($(this).text()));
 	   
 	
   });

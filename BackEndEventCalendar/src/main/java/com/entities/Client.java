@@ -33,6 +33,7 @@ public class Client {
 	private String deptDate;
 	
 	@NotEmpty(message="Agenda cannot be empty")
+	@Pattern(regexp="[a-zA-Z]+", message="must not contain numbers")
 	private String agenda;
 	
 	@Transient
