@@ -5,6 +5,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 
@@ -16,14 +19,21 @@ public class Client {
 	@GeneratedValue
 	private int clientId;
 	
+	@NotEmpty(message="Client Name cannot be empty")
+	@Pattern(regexp="[a-zA-Z]+", message="must not contain numbers")
 	private String clientName;
 	
+	@NotEmpty(message="Project Name cannot be empty")
+	@Pattern(regexp="[a-z]+[A-Z]+", message="must not contain numbers")
 	private String projectName;
 	
+	@NotEmpty(message="Arrival date cannot empty")
 	private String arrivalDate;
 	
+	@NotEmpty(message="Dept Date cannot be empty")
 	private String deptDate;
 	
+	@NotEmpty(message="Agenda cannot be empty")
 	private String agenda;
 	
 	@Transient

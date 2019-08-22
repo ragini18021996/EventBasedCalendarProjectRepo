@@ -8,9 +8,14 @@ import java.util.Set;
 
 
 
+
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,16 +39,25 @@ public class HomeController {
 	EventDao eventDao;
 	
 	@RequestMapping(value="/" , method=RequestMethod.GET)
-	public String Print(ModelMap map){
+	public ModelAndView Print(ModelMap map){
 		System.out.println("I m in Preform");
+		
+		ModelAndView mv=new ModelAndView("HomePage");
 		Client cObj=new Client();
-		map.addAttribute("cObj",cObj);
-		return "HomePage";
+		mv.addObject("cObj",cObj);   
+		return mv;
 	}
 	
 	@RequestMapping(value="/submitOnDb" , method=RequestMethod.POST)
-	public String submitClient(@ModelAttribute ("cObj")Client cObj,ModelMap map){
+	public ModelAndView submitClient(@Valid @ModelAttribute ("cObj")Client cObj,BindingResult result){
 	
+		ModelAndView mv;
+		if(result.hasErrors())
+		{
+			mv=new ModelAndView("HomePage");
+			mv.addObject("msg","Data is not Added");
+			return mv;
+		}
 		
 		clientDao.addClient(cObj);
 		
@@ -63,12 +77,10 @@ public class HomeController {
 			eventDao.addEvent(eObj);
 			
 		}
+		mv=new ModelAndView("HomePage");
+		mv.addObject("msg","{Data Added successfully");
+		return mv;
 		
-		
-		
-		map.addAttribute("msg","{Data Added successfully");
-		
-		return "HomePage";
 	}
 	
 	@RequestMapping(value="/view" , method=RequestMethod.GET)

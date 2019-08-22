@@ -2,6 +2,8 @@ package com.entities;
 
 import javax.persistence.*;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 
 @Entity
@@ -18,7 +20,7 @@ public class Events {
 	@GeneratedValue
 
 	private int eventId;
-
+	@NotEmpty(message="Event type cannot be empty")
 	private String eventType;
 	
 	private String startTimeDate;

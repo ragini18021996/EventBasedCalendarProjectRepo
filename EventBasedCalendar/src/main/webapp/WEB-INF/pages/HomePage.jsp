@@ -30,7 +30,8 @@
                       <label for="fname">Client Name</label>
                     </div>
                   <div class="col-75">
-                      <form:input path="clientName" type="text" id="cname" name="clientname" placeholder="client name.."/>
+                      <form:input path="clientName" type="text" id="cname" name="clientname" placeholder="client name.."/><br>
+                      <form:errors path="clientName" style="color:red"></form:errors>
 
                
                   </div>
@@ -40,7 +41,8 @@
                       <label for="lname">Project Name</label>
                     </div>
                       <div class="col-75">
-                      <form:input path="projectName" type="text" id="pname" name="projectname" placeholder="project name.."/>
+                      <form:input path="projectName" type="text" id="pname" name="projectname" placeholder="project name.."/><br>
+                      <form:errors path="projectName" style="color:red"></form:errors>
                       </div>
                   </div>
                   <div class="row">
@@ -48,7 +50,8 @@
                       <label >Arrival date</label>
                     </div>
                     <div class="col-75">
-                          <form:input path="arrivalDate" type="date" name="startdate"/>
+                          <form:input path="arrivalDate" type="date" name="startdate"/><br>
+                          <form:errors path="arrivalDate" style="color:red"></form:errors>
                     </div>
                   </div>
                   <div class="row">
@@ -56,7 +59,8 @@
                             <label >End date</label>
                           </div>
                           <div class="col-75">
-                                <form:input path="deptDate" type="date" name="enddate"/>
+                                <form:input path="deptDate" type="date" name="enddate"/><br>
+                                <form:errors path="deptDate" style="color:red"></form:errors>
                           </div>
                   </div>
                   <div class="row">
@@ -64,7 +68,8 @@
                       <label for="agenda">Agenda</label>
                     </div>
                       <div class="col-75">
-                      <form:input path="agenda" type="text" id="agenda" name="agenda" placeholder="Enter Agenda"/>
+                      <form:input path="agenda" type="text" id="agenda" name="agenda" placeholder="Enter Agenda"/><br>
+                      <form:errors path="agenda" style="color:red"></form:errors>
                       </div>
                   </div>
 					<hr></hr>
@@ -128,7 +133,7 @@
                         </div>
                 
                         <div class="col-75">
-                          <input type="datetime-local" name="starttime" id="starttime">
+                          <input type="datetime-local" name="starttime" id="starttime" required>
                        </div>
                       </div>
                       <div class="row">
@@ -136,7 +141,7 @@
                             <label>Event end  date And time</label>
                         </div>
                         <div class="col-75">
-                          <input type="datetime-local" name="endtime" id="endtime">
+                          <input type="datetime-local" name="endtime" id="endtime" required>
                        </div>
                    
                      
