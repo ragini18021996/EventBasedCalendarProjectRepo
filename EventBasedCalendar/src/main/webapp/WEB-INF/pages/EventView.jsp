@@ -12,36 +12,22 @@
 <title>EventView</title>
 </head>
 <body>
-	
 	<div align="center">
-	
 		<h1> Client's Name is  ${clientName}</h1>
-	
 	<table width="1000">
 		<tr>
-			
-			<th>Event Id</th>  
-			<th>Event Type</th>			
+			<th>Event</th>			
 			<th>StartTimeDate</th><!--  should be ordered by from the class from where we r fetching...HQL-->
 			<th>EndTimeDate</th>
-			
-			
-			
 		</tr>
 		<c:forEach items="${EventsList}" var="events">	
 			<tr>
-				<td>${events.eventId}</td>
 				<td>${events.eventType}</td>
 				<td>${events.startTimeDate}</td>
-				<td>${events.endTimeDate}</td>
-				
-						
+				<td>${events.endTimeDate}</td>		
 			</tr>
 		</c:forEach>
-		
 	</table>
 	</div> 
-</div>
-
 </body>
 </html>

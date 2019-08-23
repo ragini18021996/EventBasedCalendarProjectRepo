@@ -59,6 +59,8 @@ public class HomeController {
 			return mv;
 		}
 		
+		try{
+			//if(msg!="")
 		 clientDao.addClient(cObj);
 		String eventData=cObj.getEventData();
 		
@@ -75,6 +77,12 @@ public class HomeController {
 			//eObj.setPlace(events2[3]);
 			eventDao.addEvent(eObj);
 			
+		}
+		}catch(Exception e){
+			mv=new ModelAndView("HomePage");
+			clientDao.delClient(cObj.getClientId());
+			mv.addObject("msg","There is some problem..Please fill the Event Details");
+			return mv;
 		}
 		mv=new ModelAndView("HomePage");
 		mv.addObject("msg","Client Itinerary Successfully");
