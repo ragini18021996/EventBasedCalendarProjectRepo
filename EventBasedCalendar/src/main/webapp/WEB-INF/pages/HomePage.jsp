@@ -290,8 +290,9 @@ function DateCheck()
 		{
 			alert("Please ensure arrival date is before departure date");
 			return false;
+			
 		}
-	}
+}
 	
 </script>
 
