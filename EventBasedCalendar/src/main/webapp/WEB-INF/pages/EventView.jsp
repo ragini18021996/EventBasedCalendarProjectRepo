@@ -15,7 +15,7 @@
 	
 	<div align="center">
 	
-		<h1> Client's Id is  ${clientId}</h1>
+		<h1> Client's Id is  ${clients.clientId}</h1>
 	
 	<table width="1000">
 		<tr>
@@ -25,7 +25,7 @@
 			<th>StartTimeDate</th><!--  should be ordered by from the class from where we r fetching...HQL-->
 			<th>EndTimeDate</th>
 			
-			<th>place</th>
+			
 			
 		</tr>
 		<c:forEach items="${EventsList}" var="events">	
@@ -34,7 +34,7 @@
 				<td>${events.eventType}</td>
 				<td>${events.startTimeDate}</td>
 				<td>${events.endTimeDate}</td>
-				<td>${events.place}</td>
+				
 						
 			</tr>
 		</c:forEach>

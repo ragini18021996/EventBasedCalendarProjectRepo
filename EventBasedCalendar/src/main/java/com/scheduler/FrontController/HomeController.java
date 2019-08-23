@@ -78,7 +78,7 @@ public class HomeController {
 			
 		}
 		mv=new ModelAndView("HomePage");
-		mv.addObject("msg","{Data Added successfully");
+		mv.addObject("msg","Client Itinerary Successfully");
 		return mv;
 		
 	}

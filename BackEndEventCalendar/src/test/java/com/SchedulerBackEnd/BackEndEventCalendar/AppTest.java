@@ -86,7 +86,7 @@ public class AppTest
 		e.setStartTimeDate("25/12/2018 12:45");
 		e.setEndTimeDate("25/12/2018 12:48");
 		e.setEventType("Meeting");
-		e.setPlace("Focus");
+		
 		
 		assertTrue("not added",eDao.addEvent(e));
 	}
@@ -115,7 +115,7 @@ public class AppTest
 		e1.setStartTimeDate("25/12/2018 12:45");
 		e1.setEndTimeDate("25/12/2018 12:48");
 		e1.setEventType("Meeting");
-		e1.setPlace("Focus");
+		
 		
 		
 		
@@ -123,7 +123,7 @@ public class AppTest
 		e2.setStartTimeDate("29/10/2018 12:45");
 		e2.setEndTimeDate("30/10/2018 12:48");
 		e2.setEventType("Hotel");
-		e2.setPlace("Noida");
+		
 		
 		Set<Events> eve=new HashSet<Events>();
 		eve.add(e1);

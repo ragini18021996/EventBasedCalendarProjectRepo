@@ -18,8 +18,8 @@
 </head>
 <body>
 	
-<button class="tablink" onclick="openPage('Add', this, 'blue')" id="defaultOpen">Client Itinerary</button>
-<button class="tablink" onclick="openPage('View', this, 'blue');" id="tablink2">View Client Itinerary</button>
+<button class="tablink" onclick="openPage('Add', this, '#66b3ff')" id="defaultOpen">Client Itinerary</button>
+<button class="tablink" onclick="openPage('View', this, '#66b3ff');" id="tablink2">View Client Itinerary</button>
 
 <div id="Add" class="tabcontent">
         <div class="container">

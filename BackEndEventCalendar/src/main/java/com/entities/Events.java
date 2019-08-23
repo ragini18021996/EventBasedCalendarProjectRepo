@@ -14,31 +14,26 @@ public class Events {
 	public String toString() {
 		return "Events [eventId=" + eventId + ", eventType=" + eventType
 				+ ", startTimeDate=" + startTimeDate + ", endTimeDate="
-				+ endTimeDate + ", place=" + place + ", cli=" + cli + "]";
+				+ endTimeDate + ", cli=" + cli + "]";
 	}
 	@Id
 	@GeneratedValue
 
 	private int eventId;
-	@NotEmpty(message="Event type cannot be empty")
+	@NotEmpty(message="Cannot be empty")
 	private String eventType;
 	
 	private String startTimeDate;
 	
 	private String endTimeDate;
 	
-	private String place;
+
 	
 	@ManyToOne(cascade=CascadeType.MERGE)
 	private Client cli;
 	
 
-	public String getPlace() {
-		return place;
-	}
-	public void setPlace(String place) {
-		this.place = place;
-	}
+	
 	
 	public int getEventId() {
 		return eventId;
