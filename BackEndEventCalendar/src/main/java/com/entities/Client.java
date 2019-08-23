@@ -23,6 +23,7 @@ public class Client {
 	@Id
 	@GeneratedValue
 	private int clientId;
+	private String account;
 	
 	@NotEmpty(message="Cannot be empty")
 	@Pattern(regexp="[a-zA-Z\\s]+$", message="Enter only Letters")
@@ -55,10 +56,35 @@ public class Client {
 	@Transient
 	private String eventData;
 	
+	@Transient
+	private String stringarrive;
+	@Transient
+	private String stringdepart;
+	
+	
+	
 	/*@OneToMany(cascade=CascadeType.PERSIST,mappedBy="cli",fetch=FetchType.EAGER)
 	private Set<Events> eve=new HashSet<Events>();*/
 	
 	
+	public String getStringarrive() {
+		return stringarrive;
+	}
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
+	}
+	public void setStringarrive(String stringarrive) {
+		this.stringarrive = stringarrive;
+	}
+	public String getStringdepart() {
+		return stringdepart;
+	}
+	public void setStringdepart(String stringdepart) {
+		this.stringdepart = stringdepart;
+	}
 	/*public Set<Events> getEve() {
 		return eve;
 	}

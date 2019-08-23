@@ -2,8 +2,9 @@ package com.entities;
 
 
 
-import javax.persistence.*;
+import java.util.Date;
 
+import javax.persistence.*;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -28,9 +29,9 @@ public class Events {
 	private String eventType;
 	
 	
-	private String startTimeDate;
+	private Date startTimeDate;
 	
-	private String endTimeDate;
+	private Date endTimeDate;
 	
 
 	
@@ -53,16 +54,16 @@ public class Events {
 	public void setEventType(String eventType) {
 		this.eventType = eventType;
 	}
-	public String getStartTimeDate() {
+	public Date getStartTimeDate() {
 		return startTimeDate;
 	}
-	public void setStartTimeDate(String startTimeDate) {
-		this.startTimeDate = startTimeDate;
+	public void setStartTimeDate(Date startDateTime) {
+		this.startTimeDate = startDateTime;
 	}
-	public String getEndTimeDate() {
+	public Date getEndTimeDate() {
 		return endTimeDate;
 	}
-	public void setEndTimeDate(String endTimeDate) {
+	public void setEndTimeDate(Date endTimeDate) {
 		this.endTimeDate = endTimeDate;
 	}
 	public Client getCli() {

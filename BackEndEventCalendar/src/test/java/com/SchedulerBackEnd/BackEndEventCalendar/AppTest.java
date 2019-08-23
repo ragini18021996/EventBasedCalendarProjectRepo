@@ -82,8 +82,8 @@ public class AppTest
 	public void addEvent()
 	{
 		Events e=new Events();
-		e.setStartTimeDate("25/12/2018 12:45");
-		e.setEndTimeDate("25/12/2018 12:48");
+		/*e.setStartTimeDate("25/12/2018 12:45");
+		e.setEndTimeDate("25/12/2018 12:48");*/
 		e.setEventType("Meeting");
 		
 		
@@ -111,17 +111,17 @@ public class AppTest
 	public void addClientWithEvent()
 	{
 		Events e1=new Events();
-		e1.setStartTimeDate("25/12/2018 12:45");
-		e1.setEndTimeDate("25/12/2018 12:48");
+		/*e1.setStartTimeDate("25/12/2018 12:45");
+		e1.setEndTimeDate("25/12/2018 12:48");*/
 		e1.setEventType("Meeting");
 		
 		
 		
 		
 		Events e2=new Events();
-		e2.setStartTimeDate("29/10/2018 12:45");
+	/*	e2.setStartTimeDate("29/10/2018 12:45");
 		e2.setEndTimeDate("30/10/2018 12:48");
-		e2.setEventType("Hotel");
+		*/e2.setEventType("Hotel");
 		
 		
 		Set<Events> eve=new HashSet<Events>();

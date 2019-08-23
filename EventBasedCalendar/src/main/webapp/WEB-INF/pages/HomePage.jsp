@@ -51,7 +51,7 @@
                        <label >Arrival date</label>
                     </div>
                     <div class="col-75">
-                       <form:input path="arrivalDate" type="date" name="startdate"/><br>
+                       <form:input path="arrivalDate" type="date" id="startdate"/><br>
                        <form:errors path="arrivalDate" style="color:red"></form:errors>
                     </div>
                  </div>
@@ -60,7 +60,7 @@
                       <label >End date</label>
                    </div>
                    <div class="col-75">
-                      <form:input path="deptDate" type="date" name="enddate"/><br>
+                      <form:input path="deptDate" type="date" id="enddate"/><br>
                       <form:errors path="deptDate" style="color:red"></form:errors>
                    </div>
                 </div>
@@ -71,6 +71,21 @@
                   <div class="col-75">
                      <form:input path="agenda" type="text" id="agenda" name="agenda" placeholder="Enter Agenda"/><br>
                      <form:errors path="agenda" style="color:red"></form:errors>
+                  </div>
+                </div>
+                 <div class="row">
+                  <div class="col-25">
+                     <label for="agenda">Account</label>
+                  </div>
+                  <div class="col-75">
+                  <form:select path="account">
+            	       <form:option value="CITI" default>CITI</form:option>
+                	   <form:option value="Bank of Montreal">Bank of Montreal</form:option>
+                  		<form:option value="Bank of Canada">Bank of Canada</form:option>
+                  		<form:option value="HDFC">HDFC</form:option>
+                  		<form:option value="Others">Others</form:option>
+                   </form:select>
+                   
                   </div>
                 </div>
 				<hr></hr>
@@ -151,13 +166,13 @@
 				   <br></br>
 				   <br></br>
                   <div class="row" align="center">
-                    <input type="submit" value="Submit" >
+                    <input type="submit" value="Submit" onclick="DateCheck()">
                   </div>
           </form:form>     
       </div>         
 </div>
 <!-- View Client Iternary UI -->
-   <div id="View" class="tabcontent" onclick="fetchData()">
+   <div id="View" class="tabcontent" >
   		<div align="center">
 			<h1>View Clients</h1>
 		<table id="clientTab">
@@ -168,6 +183,7 @@
 			<th>Arrival Date</th>
 			<th>Departure Date</th>
 			<th>Agenda</th>
+			<th>Account</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -191,7 +207,7 @@
 	});
 	
 	$("#tablink2").click(function(){
-	    $.ajax({
+	    $.ajax({ //starts here
 	        url : 'view',
 	        success : function(data) {
 	        	var clientList="";
@@ -200,9 +216,10 @@
 	                 clientList=clientList+"<tr>";
 	                 clientList=clientList+"<td>"+obj.clientName +"</td>";
 	                 clientList=clientList+"<td>"+ obj.projectName +"</td>";
-	                 clientList=clientList+"<td>"+ obj.arrivalDate +" </td>";
-	                 clientList=clientList+"<td> "+ obj.deptDate +"</td>";
+	                 clientList=clientList+"<td>"+ obj.stringarrive +" </td>";
+	                 clientList=clientList+"<td> "+ obj.stringdepart +"</td>";
 	                 clientList=clientList+"<td>"+ obj.agenda +"</td>";
+	                 clientList=clientList+"<td>"+ obj.account +"</td>";
 	                 clientList=clientList+"<td><a href='${pageContext.request.contextPath}/viewClientEvent/"+obj.clientId+"'>View Events</a></td>";
 	                 clientList=clientList+"</tr>";
 	                
@@ -211,7 +228,7 @@
 	        	  
 	        	 $('#clientTab tbody').html(clientList);
 	        }
-	    });
+	    });//end starts
 	});
 	$('#starttime').focusout(function(e){
 		 var str1 = $('#starttime').val();
@@ -263,7 +280,18 @@
 		    $("#starttime").val("");
 		    $("#endtime").val("");  
 		}
-
+function DateCheck()
+{
+	var StartDate=document.getElementById('startdate').value;
+	var EndDate=document.getElementById('enddate').value;
+	var eDate=new Date(EndDate);
+	var sDate=new Date(StartDate);
+	if(StartDate!='' && StartDate!='' && sDate>eDate)
+		{
+			alert("Please ensure arrival date is before departure date");
+			return false;
+		}
+	}
 	
 </script>
 

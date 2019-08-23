@@ -1,14 +1,10 @@
 package com.scheduler.FrontController;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-
-
-
-
-
-
-
 
 import javax.validation.Valid;
 
@@ -72,17 +68,38 @@ public class HomeController {
 			Events eObj=new Events();
 			eObj.setCli(cObj);
 			eObj.setEventType(events2[0]);
-			eObj.setStartTimeDate(events2[1]);
-			eObj.setEndTimeDate(events2[2]);
+			
+			
+			System.out.println("start Date and Time"+events2[1]);
+			System.out.println("end Date and Time"+events2[2]);
+			
+			events2[1]=events2[1].replace("T"," ");
+			events2[2]=events2[2].replace("T"," ");
+			
+			System.out.println("start Date and Time"+events2[1]);
+			System.out.println("end Date and Time"+events2[2]);
+			
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:MM");
+			Date startDateTime =sdf.parse(events2[1]);
+			Date endDateTime =sdf.parse(events2[2]);
+			
+			eObj.setStartTimeDate(startDateTime);
+			
+			
+			eObj.setEndTimeDate(endDateTime);
+			
+			
+			
 			//eObj.setPlace(events2[3]);
 			eventDao.addEvent(eObj);
 			
 		}
 		}catch(Exception e){
-			mv=new ModelAndView("HomePage");
+			e.printStackTrace();
+			/*mv=new ModelAndView("HomePage");
 			clientDao.delClient(cObj.getClientId());
 			mv.addObject("msg","There is some problem..Please fill the Event Details");
-			return mv;
+			return mv;*/
 		}
 		mv=new ModelAndView("HomePage");
 		mv.addObject("msg","Client Itinerary Successfully");
@@ -94,11 +111,25 @@ public class HomeController {
 	public @ResponseBody List<Client> viewClient(ModelMap map){
 			List<Client>  clientList=clientDao.getAllClient();
 			for(Client client:clientList)
-				System.out.println(client);
+			{
+				Date arrvdt=client.getArrivalDate();
+				Date deptdt=client.getDeptDate();
+				DateFormat dateformat=new SimpleDateFormat("yyyy-MM-dd");
+				String strDate1=dateformat.format(arrvdt);
+				String strDate2=dateformat.format(deptdt);
+				client.setStringarrive(strDate1);
+				client.setStringdepart(strDate2);
+			
+				
+			}
+			
+			
+		
 			map.addAttribute("clients",clientList);
 			return clientList;
 		
 	}
+	
 	/*@RequestMapping(value="/viewClientEvent/{clientId}" , method=RequestMethod.GET)
 	public ModelAndView viewClientEvent(@PathVariable int clientId,ModelMap map){
 			System.out.println(clientId);
