@@ -79,7 +79,7 @@
                   </div>
                   <div class="col-75">
                   <form:select path="account">
-            	       <form:option value="CITI" default>CITI</form:option>
+            	       <form:option value="CITI" >CITI</form:option>
                 	   <form:option value="Bank of Montreal">Bank of Montreal</form:option>
                   		<form:option value="Bank of Canada">Bank of Canada</form:option>
                   		<form:option value="HDFC">HDFC</form:option>
