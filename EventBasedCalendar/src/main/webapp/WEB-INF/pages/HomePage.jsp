@@ -15,6 +15,7 @@
  <%--Within the webapp creates resources folder which contain two folder one is css for .css file and js for javascript files --%>
 <link href="<c:url value="/resources/css/style1.css" />" rel="stylesheet">
 <script src="<c:url value="/resources/js/HomeFunctions.js" />"></script>
+
 </head>
 <body>
 	
@@ -172,6 +173,7 @@
 		<tbody>
 		</tbody>
 	</table>
+	
 	</div> 
 </div>
 
@@ -194,7 +196,7 @@
 	        success : function(data) {
 	        	var clientList="";
 	        	 $.each(data, function(index, obj) {
-	                
+	        		 var myJSON = JSON.stringify(obj.arrivalDate);
 	                 clientList=clientList+"<tr>";
 	                 clientList=clientList+"<td>"+obj.clientName +"</td>";
 	                 clientList=clientList+"<td>"+ obj.projectName +"</td>";
@@ -204,7 +206,7 @@
 	                 clientList=clientList+"<td><a href='${pageContext.request.contextPath}/viewClientEvent/"+obj.clientId+"'>View Events</a></td>";
 	                 clientList=clientList+"</tr>";
 	                
-	                 //alert("cid"+obj.clientId);
+	                
 	             }); 
 	        	  
 	        	 $('#clientTab tbody').html(clientList);
@@ -262,7 +264,7 @@
 		    $("#endtime").val("");  
 		}
 
-		
+	
 </script>
 
 </body>

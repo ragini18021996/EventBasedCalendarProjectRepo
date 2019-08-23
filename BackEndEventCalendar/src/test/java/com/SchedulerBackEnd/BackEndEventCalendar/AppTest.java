@@ -43,8 +43,7 @@ public class AppTest
 		Client c=new Client();
 		c.setClientName("Raghav");
 		c.setProjectName("proj1");
-		c.setArrivalDate("17/2/2019");
-		c.setDeptDate("29/2/2019");
+		
 		c.setAgenda("func1");
 		
 		
@@ -133,8 +132,7 @@ public class AppTest
 		Client c=new Client();
 		c.setClientName("Raghav");
 		c.setProjectName("proj1");
-		c.setArrivalDate("17/2/2019");
-		c.setDeptDate("29/2/2019");
+		
 		c.setAgenda("func1");
 		//c.setEve(eve);
 		

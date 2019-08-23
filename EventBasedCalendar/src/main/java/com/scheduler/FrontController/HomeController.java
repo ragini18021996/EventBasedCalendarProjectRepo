@@ -93,11 +93,13 @@ public class HomeController {
 	@RequestMapping(value="/view" , method=RequestMethod.GET)
 	public @ResponseBody List<Client> viewClient(ModelMap map){
 			List<Client>  clientList=clientDao.getAllClient();
+			for(Client client:clientList)
+				System.out.println(client);
 			map.addAttribute("clients",clientList);
 			return clientList;
 		
 	}
-	@RequestMapping(value="/viewClientEvent/{clientId}" , method=RequestMethod.GET)
+	/*@RequestMapping(value="/viewClientEvent/{clientId}" , method=RequestMethod.GET)
 	public ModelAndView viewClientEvent(@PathVariable int clientId,ModelMap map){
 			System.out.println(clientId);
 			
@@ -115,7 +117,11 @@ public class HomeController {
 			
 			return mv;
 		
-	}
+	}*/
 	
+	@RequestMapping(value="/viewClientEvent/{clientId}" , method=RequestMethod.GET)
+	public String viewClientEvent(@PathVariable int clientId,ModelMap map){
+		return "cal";
+	}
 	
 }

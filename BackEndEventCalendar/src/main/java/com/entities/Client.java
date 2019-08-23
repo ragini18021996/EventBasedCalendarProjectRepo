@@ -1,15 +1,18 @@
 package com.entities;
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
 import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 
@@ -28,11 +31,22 @@ public class Client {
 	@NotEmpty(message="Cannot be empty")
 	private String projectName;
 	
-	@NotEmpty(message="Cannot be empty")
-	private String arrivalDate;
+	@Override
+	public String toString() {
+		return "Client [clientId=" + clientId + ", clientName=" + clientName
+				+ ", projectName=" + projectName + ", arrivalDate="
+				+ arrivalDate + ", deptDate=" + deptDate + ", agenda=" + agenda
+				+ ", eventData=" + eventData + "]";
+	}
+	@NotNull
+	@Future
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date arrivalDate;
 	
-	@NotEmpty(message="Cannot be empty")
-	private String deptDate;
+	@NotNull
+	@Future
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date deptDate;
 	
 	@NotEmpty(message="Cannot be empty")
 	@Pattern(regexp="[a-zA-Z\\s]+$", message="Enter only Letters")
@@ -69,16 +83,17 @@ public class Client {
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
 	}
-	public String getArrivalDate() {
+	
+	public Date getArrivalDate() {
 		return arrivalDate;
 	}
-	public void setArrivalDate(String arrivalDate) {
+	public void setArrivalDate(Date arrivalDate) {
 		this.arrivalDate = arrivalDate;
 	}
-	public String getDeptDate() {
+	public Date getDeptDate() {
 		return deptDate;
 	}
-	public void setDeptDate(String deptDate) {
+	public void setDeptDate(Date deptDate) {
 		this.deptDate = deptDate;
 	}
 	public String getAgenda() {

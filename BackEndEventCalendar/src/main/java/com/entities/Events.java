@@ -1,8 +1,12 @@
 package com.entities;
 
+
+
 import javax.persistence.*;
 
+
 import org.hibernate.validator.constraints.NotEmpty;
+
 
 
 
@@ -23,11 +27,13 @@ public class Events {
 	@NotEmpty(message="Cannot be empty")
 	private String eventType;
 	
+	
 	private String startTimeDate;
 	
 	private String endTimeDate;
 	
 
+	
 	
 	@ManyToOne(cascade=CascadeType.MERGE)
 	private Client cli;
