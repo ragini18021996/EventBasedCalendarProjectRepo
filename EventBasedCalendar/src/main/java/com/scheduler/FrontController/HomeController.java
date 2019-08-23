@@ -59,8 +59,7 @@ public class HomeController {
 			return mv;
 		}
 		
-		clientDao.addClient(cObj);
-		
+		 clientDao.addClient(cObj);
 		String eventData=cObj.getEventData();
 		
 		
@@ -93,8 +92,13 @@ public class HomeController {
 	@RequestMapping(value="/viewClientEvent/{clientId}" , method=RequestMethod.GET)
 	public ModelAndView viewClientEvent(@PathVariable int clientId,ModelMap map){
 			System.out.println(clientId);
+			
+			
+			Client c=clientDao.viewClient(clientId);
+			
+			
 			ModelAndView mv=new ModelAndView("EventView"); 
-			mv.addObject("clientId",clientId);    
+			mv.addObject("clientName",c.getClientName());    
 			List<Events> eventList=eventDao.viewAllEventsById(clientId);
 			for(Events event:eventList){
 			System.out.println("Event"+event);

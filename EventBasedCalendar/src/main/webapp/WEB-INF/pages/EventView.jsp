@@ -15,7 +15,7 @@
 	
 	<div align="center">
 	
-		<h1> Client's Id is  ${clients.clientId}</h1>
+		<h1> Client's Name is  ${clientName}</h1>
 	
 	<table width="1000">
 		<tr>

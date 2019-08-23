@@ -22,7 +22,7 @@ public class Client {
 	private int clientId;
 	
 	@NotEmpty(message="Cannot be empty")
-	@Pattern(regexp="[a-zA-Z]+[ ][a-zA-Z]+", message="Enter only Letters")
+	@Pattern(regexp="[a-zA-Z\\s]+$", message="Enter only Letters")
 	private String clientName;
 	
 	@NotEmpty(message="Cannot be empty")
@@ -35,7 +35,7 @@ public class Client {
 	private String deptDate;
 	
 	@NotEmpty(message="Cannot be empty")
-	@Pattern(regexp="[a-zA-Z]+", message="Enter only Letters")
+	@Pattern(regexp="[a-zA-Z\\s]+$", message="Enter only Letters")
 	private String agenda;
 	
 	@Transient
