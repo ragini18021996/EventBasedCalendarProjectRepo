@@ -173,7 +173,7 @@ public class HomeController {
 			return mv;
 		
 	}
-	@RequestMapping(value="/viewClientEvent/deleteEvent/{eventId}/{clientId}",method=RequestMethod.GET)
+	@RequestMapping(value="/deleteEvent/{eventId}/{clientId}",method=RequestMethod.GET)
 	public ModelAndView deleteEvent(@PathVariable int eventId,ModelMap map,@PathVariable int clientId)
 	{
 		eventDao.deleteEvent(eventId);
