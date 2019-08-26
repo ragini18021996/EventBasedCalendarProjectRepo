@@ -19,7 +19,7 @@
 			<th>Event</th>			
 			<th>StartTimeDate</th><!--  should be ordered by from the class from where we r fetching...HQL-->
 			<th>EndTimeDate</th>
-			<th colspan="2">Edit Event</th>
+<!-- 			<th colspan="2">Edit Event</th> -->
 		</tr>
 		<c:forEach items="${EventsList}" var="events">	
 			<tr>
