@@ -202,7 +202,7 @@
   $('.dropdown-submenu a.test').on("click", function(e){
 		var event1=($(this).text());
 		 sessionStorage.setItem("event1",$(this).text());
-	    $(this).next('ul').toggle();
+	    $(this).next('ul').toggle(500);
 	    e.stopPropagation();
 	  });
 	$('.dropdown-menu a.test2').on("click", function(e){
