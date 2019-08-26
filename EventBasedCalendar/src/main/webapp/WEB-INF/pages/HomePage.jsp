@@ -26,7 +26,7 @@
    <div class="container">
        <form:form action="${pageContext.request.contextPath}/submitOnDb" method="post"  modelAttribute="cObj" >
             <c:if test="${msg ne null }">
-			   <h4 align="center" style="color:blue;">${msg}</h4>
+			   <h4 align="center" style="color:#66b3ff;">${msg}</h4>
 			</c:if>
             <div class="row">
                <div class="col-25">
