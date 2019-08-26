@@ -96,10 +96,10 @@ public class HomeController {
 		}
 		}catch(Exception e){
 			e.printStackTrace();
-			/*mv=new ModelAndView("HomePage");
+			mv=new ModelAndView("HomePage");
 			clientDao.delClient(cObj.getClientId());
 			mv.addObject("msg","There is some problem..Please fill the Event Details");
-			return mv;*/
+			return mv;
 		}
 		mv=new ModelAndView("HomePage");
 		mv.addObject("msg","Client Itinerary Successfully");
