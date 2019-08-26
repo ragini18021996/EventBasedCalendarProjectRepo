@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 
@@ -28,26 +29,27 @@ public class Events {
 	@NotEmpty(message="Cannot be empty")
 	private String eventType;
 	
+	@DateTimeFormat(pattern="yyyy-MM-dd hh:mm")
+	private Date startTimeDate;
 	
-	private String startTimeDate;
-	
-	public String getStartTimeDate() {
-		return startTimeDate;
-	}
-	public void setStartTimeDate(String startTimeDate) {
-		this.startTimeDate = startTimeDate;
-	}
-	public String getEndTimeDate() {
-		return endTimeDate;
-	}
-	public void setEndTimeDate(String endTimeDate) {
-		this.endTimeDate = endTimeDate;
-	}
-	private String endTimeDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd hh:mm")
+	private Date endTimeDate;
 	
 
 	
 	
+	public Date getStartTimeDate() {
+		return startTimeDate;
+	}
+	public void setStartTimeDate(Date startTimeDate) {
+		this.startTimeDate = startTimeDate;
+	}
+	public Date getEndTimeDate() {
+		return endTimeDate;
+	}
+	public void setEndTimeDate(Date endTimeDate) {
+		this.endTimeDate = endTimeDate;
+	}
 	@ManyToOne(cascade=CascadeType.MERGE)
 	private Client cli;
 	

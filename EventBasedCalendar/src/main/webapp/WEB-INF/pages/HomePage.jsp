@@ -24,7 +24,7 @@
 
 <div id="Add" class="tabcontent">
    <div class="container">
-       <form:form action="${pageContext.request.contextPath}/submitOnDb" method="post"  modelAttribute="cObj">
+       <form:form action="${pageContext.request.contextPath}/submitOnDb" method="post"  modelAttribute="cObj" >
             <c:if test="${msg ne null }">
 			   <h4 align="center" style="color:blue;">${msg}</h4>
 			</c:if>
@@ -78,14 +78,15 @@
                      <label for="agenda">Account</label>
                   </div>
                   <div class="col-75">
-                  <form:select path="account">
+                  
+                  <form:select path="account" >
             	       <form:option value="CITI" >CITI</form:option>
                 	   <form:option value="Bank of Montreal">Bank of Montreal</form:option>
                   		<form:option value="Bank of Canada">Bank of Canada</form:option>
                   		<form:option value="HDFC">HDFC</form:option>
                   		<form:option value="Others">Others</form:option>
                    </form:select>
-                   
+                  
                   </div>
                 </div>
 				<hr></hr>
@@ -249,6 +250,7 @@
 			var newData;
 			var newData2;
 			
+			
 			if(previousData=="" || previousData==null){
 				newData="<tr><td>"+sessionStorage.getItem("event1") +"</td><td>"+sessionStorage.getItem("starttime") +" </td><td>"+
 				sessionStorage.getItem("endtime")+"</td></tr>";
@@ -298,6 +300,17 @@ function DateCheck()
 			
 		}
 }
+
+		    $("#myform").validate(
+		      {
+		        messages:{
+		        	dd1:{
+		        		required:"please",
+		        	},	
+		        }
+		      });	
+	
+	
 	
 </script>
 

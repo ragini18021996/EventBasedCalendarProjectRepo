@@ -100,10 +100,10 @@ public class HomeController {
 			events2[1]=events2[1].replace("T"," ");
 			events2[2]=events2[2].replace("T"," ");
 			
-			/*System.out.println("start Date and Time"+events2[1]);
+			System.out.println("start Date and Time"+events2[1]);
 			System.out.println("end Date and Time"+events2[2]);
 			
-			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:MM");
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm");
 			Date startDateTime =sdf.parse(events2[1]);
 			Date endDateTime =sdf.parse(events2[2]);
 			
@@ -114,9 +114,9 @@ public class HomeController {
 			
 			
 			
-			//eObj.setPlace(events2[3]);*/
-			eObj.setStartTimeDate(events2[1]);
-			eObj.setEndTimeDate(events2[2]);
+			//eObj.setPlace(events2[3]);
+			//eObj.setStartTimeDate(events2[1]);
+			//eObj.setEndTimeDate(events2[2]);
 			eventDao.addEvent(eObj);
 			
 		}
