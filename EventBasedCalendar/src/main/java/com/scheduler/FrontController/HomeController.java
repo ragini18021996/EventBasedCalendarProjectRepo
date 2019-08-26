@@ -130,7 +130,7 @@ public class HomeController {
 		
 	}
 	
-	/*@RequestMapping(value="/viewClientEvent/{clientId}" , method=RequestMethod.GET)
+	@RequestMapping(value="/viewClientEvent/{clientId}" , method=RequestMethod.GET)
 	public ModelAndView viewClientEvent(@PathVariable int clientId,ModelMap map){
 			System.out.println(clientId);
 			
@@ -148,11 +148,11 @@ public class HomeController {
 			
 			return mv;
 		
-	}*/
-	
-	@RequestMapping(value="/viewClientEvent/{clientId}" , method=RequestMethod.GET)
-	public String viewClientEvent(@PathVariable int clientId,ModelMap map){
-		return "cal";
 	}
+	
+//	@RequestMapping(value="/viewClientEvent/{clientId}" , method=RequestMethod.GET)
+//	public String viewClientEvent(@PathVariable int clientId,ModelMap map){
+//		return "cal";
+//	}
 	
 }

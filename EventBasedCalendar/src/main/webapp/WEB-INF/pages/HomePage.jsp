@@ -69,7 +69,7 @@
                      <label for="agenda">Agenda</label>
                   </div>
                   <div class="col-75">
-                     <form:input path="agenda" type="text" id="agenda" name="agenda" placeholder="Enter Agenda"/><br>
+                     <form:input path="agenda" type="text" id="agenda" name="agenda" placeholder="Enter Agenda" onclick="DateCheck()"/><br>
                      <form:errors path="agenda" style="color:red"></form:errors>
                   </div>
                 </div>
@@ -166,7 +166,7 @@
 				   <br></br>
 				   <br></br>
                   <div class="row" align="center">
-                    <input type="submit" value="Submit" onclick="DateCheck()">
+                    <input type="submit" value="Submit">
                   </div>
           </form:form>     
       </div>         
