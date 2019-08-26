@@ -49,7 +49,7 @@ public class EventDaoImpl implements EventDao{
 	public List<Events> viewAllEventsById(int cid) {
 		try {
 			Session session=sf.getCurrentSession();
-			Query q=session.createQuery("from Events where cli.clientId =:x");
+			Query q=session.createQuery("from Events where cli.clientId =:x order by startTimeDate");
 			q.setParameter("x", cid);
 			return q.getResultList();
 			
