@@ -14,5 +14,6 @@ public interface EventDao {
 	public boolean addEvent(Events c);
 	public Events viewEvent(int id);
 	public List<Events> viewAllEventsById(int cid);
+	public boolean deleteEvent(int eventId);
 	
 }

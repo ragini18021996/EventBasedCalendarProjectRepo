@@ -58,5 +58,22 @@ public class EventDaoImpl implements EventDao{
 		return null;
 		
 	}
+
+	public boolean deleteEvent(int eventId) {
+		try
+		{
+			Session session=sf.getCurrentSession();
+			Events e=new Events();
+			e.setEventId(eventId);
+			session.delete(e);
+			return true;	
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	
 }

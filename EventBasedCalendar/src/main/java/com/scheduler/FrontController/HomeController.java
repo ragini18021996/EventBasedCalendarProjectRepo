@@ -139,7 +139,8 @@ public class HomeController {
 			
 			
 			ModelAndView mv=new ModelAndView("EventView"); 
-			mv.addObject("clientName",c.getClientName());    
+			mv.addObject("clientName",c.getClientName());  
+			mv.addObject("clientId",c.getClientId()); 
 			List<Events> eventList=eventDao.viewAllEventsById(clientId);
 			for(Events event:eventList){
 			System.out.println("Event"+event);
@@ -148,6 +149,19 @@ public class HomeController {
 			
 			return mv;
 		
+	}
+	@RequestMapping(value="/viewClientEvent/deleteEvent/{eventId}/{clientId}",method=RequestMethod.GET)
+	public ModelAndView deleteEvent(@PathVariable int eventId,ModelMap map,@PathVariable int clientId)
+	{
+		eventDao.deleteEvent(eventId);
+		//map.addAttribute("msg", "Event deleted");
+		Client c=clientDao.viewClient(clientId);
+		ModelAndView mv=new ModelAndView("EventView");
+		mv.addObject("clientName",c.getClientName());
+		List<Events> eventList=eventDao.viewAllEventsById(clientId);
+		mv.addObject("EventsList", eventList);
+		
+		return mv;
 	}
 	
 //	@RequestMapping(value="/viewClientEvent/{clientId}" , method=RequestMethod.GET)

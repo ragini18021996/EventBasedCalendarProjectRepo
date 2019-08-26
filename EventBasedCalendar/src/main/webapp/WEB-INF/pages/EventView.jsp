@@ -19,12 +19,15 @@
 			<th>Event</th>			
 			<th>StartTimeDate</th><!--  should be ordered by from the class from where we r fetching...HQL-->
 			<th>EndTimeDate</th>
+			<th colspan="2">Edit Event</th>
 		</tr>
 		<c:forEach items="${EventsList}" var="events">	
 			<tr>
 				<td>${events.eventType}</td>
 				<td>${events.startTimeDate}</td>
-				<td>${events.endTimeDate}</td>		
+				<td>${events.endTimeDate}</td>	
+				<td><a href="updateEvent/${events.eventId}">Update</a></td>
+				<td><a href="deleteEvent/${events.eventId}/${clientId}">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>
