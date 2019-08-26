@@ -233,14 +233,14 @@
 	});
 	$('#starttime').focusout(function(e){
 		 var str1 = $('#starttime').val();
-		 console.log("str1 = "+str1);
+		 //console.log("str1 = "+str1);
 		 sessionStorage.setItem("starttime",str1); 
 		 console.log(starttime);
 	 });
 	 
 	 $('#endtime').focusout(function(e){
 		 var str2 = $('#endtime').val();
-		 console.log("str2 = "+str2);
+		 //console.log("str2 = "+str2);
 		 sessionStorage.setItem("endtime",str2);
 		 console.log(endtime);
 	 });

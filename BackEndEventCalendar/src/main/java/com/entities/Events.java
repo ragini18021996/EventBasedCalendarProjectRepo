@@ -29,9 +29,21 @@ public class Events {
 	private String eventType;
 	
 	
-	private Date startTimeDate;
+	private String startTimeDate;
 	
-	private Date endTimeDate;
+	public String getStartTimeDate() {
+		return startTimeDate;
+	}
+	public void setStartTimeDate(String startTimeDate) {
+		this.startTimeDate = startTimeDate;
+	}
+	public String getEndTimeDate() {
+		return endTimeDate;
+	}
+	public void setEndTimeDate(String endTimeDate) {
+		this.endTimeDate = endTimeDate;
+	}
+	private String endTimeDate;
 	
 
 	
@@ -54,18 +66,7 @@ public class Events {
 	public void setEventType(String eventType) {
 		this.eventType = eventType;
 	}
-	public Date getStartTimeDate() {
-		return startTimeDate;
-	}
-	public void setStartTimeDate(Date startDateTime) {
-		this.startTimeDate = startDateTime;
-	}
-	public Date getEndTimeDate() {
-		return endTimeDate;
-	}
-	public void setEndTimeDate(Date endTimeDate) {
-		this.endTimeDate = endTimeDate;
-	}
+	
 	public Client getCli() {
 		return cli;
 	}

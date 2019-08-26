@@ -26,7 +26,7 @@
 				<td>${events.eventType}</td>
 				<td>${events.startTimeDate}</td>
 				<td>${events.endTimeDate}</td>	
-				<td><a href="updateEvent/${events.eventId}">Update</a></td>
+<%-- 				<td><a href="updateEvent/${events.eventId}">Update</a></td> --%>
 				<td><a href="deleteEvent/${events.eventId}/${clientId}">Delete</a></td>
 			</tr>
 		</c:forEach>
