@@ -154,7 +154,7 @@
                   </div>
                   <br>
                   <div class="row" align="center">
-                    <input type="submit" value="Add Event" id="event">
+                    <input type="submit" value="Add Event" id="event" >
                   </div>
                   <hr></hr>
                   <div class="col-25">
@@ -246,6 +246,27 @@
 		 console.log(endtime);
 	 });
 	 $("#event").click(function(){
+		 var arrivalDate=$('#startdate').val();
+		 
+		 var eventStartDate=$('#starttime').val();
+		 var valid1=arrivalDate<=eventStartDate;
+		 console.log("Arrival compare "+valid1);
+		
+		 var DepartureDate=$('#enddate').val();
+		 var eventEndDate=$('#endtime').val();
+		 var valid2=DepartureDate>=eventEndDate;
+		 console.log("departute  compare "+valid2);
+		 
+		var flag1=eventStartDate<eventEndDate;
+		console.log("flag1 "+flag1);
+		
+		if(valid1)
+		{
+			if(valid2)
+				{
+					if(flag1)
+					{
+			
 			var previousData=sessionStorage.getItem("text");
 			var newData;
 			var newData2;
@@ -271,9 +292,20 @@
 			$("#textarea").val(newData2);
 			
 			ClearFields();
+			}
+		else
+			alert("Start Event date must be less than End Event Date");
+				}
+			else
+				alert("Event end Date Should be less than or Equal to Departure Date");
+			}
+		else
+			alert("Event Start Date Should be greater than or Equal to Arrival Date");
+		
 			return false;
 			
 		});
+	
 		function ClearFields() {
 			if(($("#textarea").val())!=null)
 				{
@@ -301,16 +333,6 @@ function DateCheck()
 		}
 }
 
-		    $("#myform").validate(
-		      {
-		        messages:{
-		        	dd1:{
-		        		required:"please",
-		        	},	
-		        }
-		      });	
-	
-	
 	
 </script>
 
