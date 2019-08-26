@@ -204,6 +204,7 @@
 	  });
 	$('.dropdown-menu a.test2').on("click", function(e){
 		   sessionStorage.setItem("event1",sessionStorage.getItem("event1")+" : "+($(this).text()));
+		  console.log(event1);
 	});
 	
 	$("#tablink2").click(function(){
@@ -222,7 +223,7 @@
 	                 clientList=clientList+"<td>"+ obj.account +"</td>";
 	                 clientList=clientList+"<td><a href='${pageContext.request.contextPath}/viewClientEvent/"+obj.clientId+"'>View Events</a></td>";
 	                 clientList=clientList+"</tr>";
-	                
+	                sessionStorage.clear();
 	                
 	             }); 
 	        	  
@@ -234,12 +235,14 @@
 		 var str1 = $('#starttime').val();
 		 console.log("str1 = "+str1);
 		 sessionStorage.setItem("starttime",str1); 
+		 console.log(starttime);
 	 });
 	 
 	 $('#endtime').focusout(function(e){
 		 var str2 = $('#endtime').val();
 		 console.log("str2 = "+str2);
-		 sessionStorage.setItem("endtime",str2); 
+		 sessionStorage.setItem("endtime",str2);
+		 console.log(endtime);
 	 });
 	 $("#event").click(function(){
 			var previousData=sessionStorage.getItem("text");
@@ -261,6 +264,7 @@
 				sessionStorage.getItem("endtime")+"\n";
 			}
 			
+			
 			$("#tab").html(newData);
 			$("#textarea").val(newData2);
 			
@@ -278,7 +282,8 @@
 				
 				}
 		    $("#starttime").val("");
-		    $("#endtime").val("");  
+		    $("#endtime").val(""); 
+		    
 		}
 function DateCheck()
 {

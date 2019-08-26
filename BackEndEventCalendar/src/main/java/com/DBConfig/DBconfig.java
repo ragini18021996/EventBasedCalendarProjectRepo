@@ -37,7 +37,7 @@ DriverManagerDataSource dataSource=new DriverManagerDataSource();
 		System.out.println("I m getSessionFactory");
 		Properties p=new Properties();
 		p.setProperty("hibernate.dialect","org.hibernate.dialect.OracleDialect");
-		p.setProperty("hibernate.hbm2ddl.auto","update");
+		p.setProperty("hibernate.hbm2ddl.auto","create");
 		p.setProperty("hibernate.show_sql", "true");
 		
 		LocalSessionFactoryBuilder sb=new LocalSessionFactoryBuilder(getDataSource());

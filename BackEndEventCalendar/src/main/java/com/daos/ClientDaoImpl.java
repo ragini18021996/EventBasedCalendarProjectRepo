@@ -89,6 +89,19 @@ public class ClientDaoImpl implements ClientDao{
 		catch(Exception e) {e.printStackTrace();}
 		return false;
 	}
-	
+	public Client getClientById(int clientId)
+	{
+		try {
+			Session session=sf.getCurrentSession();
+			Client c=session.get(Client.class, clientId);
+			return c;
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

@@ -56,8 +56,28 @@ public class HomeController {
 		}
 		
 		try{
+			Client clientNew=null;
 			//if(msg!="")
+			int flag=0;
+			List<Client>  clientList=clientDao.getAllClient();
+			for(Client c:clientList)
+			{
+				if((c.getClientName().equals(cObj.getClientName()))/*&&(c.getArrivalDate().equals(cObj.getArrivalDate()))&&(c.getDeptDate().equals(cObj.getDeptDate()))&&(c.getAgenda().equals(cObj.getAgenda()))&&(c.getAccount().equals(cObj.getAccount()))*/)
+				{	
+						int cIdPrevious=c.getClientId();
+						clientNew=clientDao.getClientById(cIdPrevious);
+						flag=1;
+						break;
+				
+				}
+				
+			}
+			
+			if(flag==0)
 		 clientDao.addClient(cObj);
+			
+			
+			
 		String eventData=cObj.getEventData();
 		
 		
@@ -66,7 +86,11 @@ public class HomeController {
 		for(String event:events){
 			String events2[]=event.split(",");
 			Events eObj=new Events();
-			eObj.setCli(cObj);
+			if(flag==1)
+			eObj.setCli(clientNew);
+			else
+				eObj.setCli(cObj);
+				
 			eObj.setEventType(events2[0]);
 			
 			
@@ -96,10 +120,10 @@ public class HomeController {
 		}
 		}catch(Exception e){
 			e.printStackTrace();
-			mv=new ModelAndView("HomePage");
-			clientDao.delClient(cObj.getClientId());
-			mv.addObject("msg","There is some problem..Please fill the Event Details");
-			return mv;
+//			mv=new ModelAndView("HomePage");
+//			clientDao.delClient(cObj.getClientId());
+//			mv.addObject("msg","There is some problem..Please fill the Event Details");
+		//	return mv;
 		}
 		mv=new ModelAndView("HomePage");
 		mv.addObject("msg","Client Itinerary Successfully");
@@ -122,9 +146,6 @@ public class HomeController {
 			
 				
 			}
-			
-			
-		
 			map.addAttribute("clients",clientList);
 			return clientList;
 		
