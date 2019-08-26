@@ -78,7 +78,7 @@
                      <label for="agenda">Account</label>
                   </div>
                   <div class="col-75">
-                  
+                 <div class="dropdownmenu">
                   <form:select path="account" >
             	       <form:option value="CITI" >CITI</form:option>
                 	   <form:option value="Bank of Montreal">Bank of Montreal</form:option>
@@ -86,6 +86,7 @@
                   		<form:option value="HDFC">HDFC</form:option>
                   		<form:option value="Others">Others</form:option>
                    </form:select>
+                   </div>
                   
                   </div>
                 </div>
@@ -174,7 +175,7 @@
 </div>
 <!-- View Client Iternary UI -->
    <div id="View" class="tabcontent" >
-  		<div align="center">
+  		<div align="center" class="container">
 			<h1>View Clients</h1>
 		<table id="clientTab">
 		<thead>
@@ -185,6 +186,7 @@
 			<th>Departure Date</th>
 			<th>Agenda</th>
 			<th>Account</th>
+			<th>View</th>
 		</tr>
 		</thead>
 		<tbody>

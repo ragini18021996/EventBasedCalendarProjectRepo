@@ -12,14 +12,14 @@
 <title>EventView</title>
 </head>
 <body>
-	<div align="center">
+	<div align="center" class="container">
 		<h1> Client's Name is  ${clientName}</h1>
 	<table width="1000">
 		<tr>
 			<th>Event</th>			
 			<th>StartTimeDate</th><!--  should be ordered by from the class from where we r fetching...HQL-->
 			<th>EndTimeDate</th>
-<!-- 			<th colspan="2">Edit Event</th> -->
+ 			<th>Edit Event</th>
 		</tr>
 		<c:forEach items="${EventsList}" var="events">	
 			<tr>
